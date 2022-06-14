@@ -3,7 +3,7 @@ const express = require("express"),
   path = require("path"),
   mongoose = require("mongoose"),
   multer = require("multer"),
-  port = env.process.PORT || 3000;
+  port = process.env.PORT || 3000;
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
