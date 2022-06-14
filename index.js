@@ -2,7 +2,8 @@ const express = require("express"),
   app = express(),
   path = require("path"),
   mongoose = require("mongoose"),
-  multer = require("multer");
+  multer = require("multer"),
+  port = env.process.PORT || 3000;
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -79,5 +80,5 @@ mongoose
   .connect(
     "mongodb+srv://admin1:RM2D8gcD57lQO8Xu@cluster0.h8jyz.mongodb.net/Contact?retryWrites=true&w=majority"
   )
-  .then(app.listen(3000, () => console.log("App is listening on port 3000")))
+  .then(app.listen(port, () => console.log(`App is listening on port ${port}`)))
   .catch((err) => console.log(err));
