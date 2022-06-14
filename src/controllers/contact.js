@@ -27,6 +27,7 @@ exports.contacts = (req, res, next) => {
         total_contacts,
         total_pages,
         msg: req.flash("msg"),
+        port: process.env.PORT || 3000,
       });
     })
     .catch((err) => next(err));

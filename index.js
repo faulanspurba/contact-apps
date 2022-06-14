@@ -42,8 +42,8 @@ const fileFilter = (req, file, cb) => {
 
 app.use(multer({ storage, fileFilter }).single("image"));
 
-// MODELS
-const contact = require("./src/routes/contact");
+
+
 
 // FLASH MESSAGE
 const session = require("express-session");
@@ -63,7 +63,11 @@ app.use(
 );
 app.use(flash());
 
+const contact = require("./src/routes/contact");
 app.use("/v1/user", contact);
+app.use("/", (req,res)=>{
+  res.redirect('v1/user/contacts')
+})
 
 app.use((error, req, res, next) => {
   const status = error.status || 500;
